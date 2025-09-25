@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for menutrai */
+        #menutrai {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 13px;
+        }
+
+        #menutrai ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menutrai ul li {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+
+        a.menutrai:link {
+            color: #b22d30;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: none;
+        }
+
+        a.menutrai:visited {
+            color: #b22d30;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+        }
+
+        a.menutrai:hover {
+            color: #5426d1;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        a.menutrai:active {
+            color: #190c3f;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Styling for menubar */
+        #menubar {
+            background-color: #b22d30;
+            height: 52px;
+            color: white;
+            text-align: center;
+            line-height: 52px;
+        }
+
+        #menubar ul {
+            display: flex;
+            justify-content: space-evenly;  /* Giãn đều các mục */
+            padding: 0;
+            margin: 0;
+            width: 100%;  /* Chiếm toàn bộ chiều rộng */
+        }
+
+        #menubar ul li {
+            list-style-type: none;
+        }
+
+        #menubar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #menubar ul li a:hover {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Styling for search bar */
+        #search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        #search-container input {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            height: 30px;
+        }
+
+        #search-container i {
+            font-size: 18px;
+            color: #b22d30;
+            cursor: pointer;
+        }
+
+        #search-container input:focus {
+            outline: none;
+            border-color: #5426d1;
+        }
+
+        #search-container i:hover {
+            color: #5426d1;
+        }
+
+        /* Flexbox layout for image and content */
+        .content-container {
+            display: flex;
+            justify-content: space-between; /* Chia ra hai cột */
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+
+        /* Content (Text) on the left */
+        .content-container .content {
+            flex: 1;  /* Content chiếm phần còn lại */
+            padding: 20px;
+        }
+
+        /* Image on the right */
+        .content-container .image {
+            width: 50%;  /* Ảnh chiếm 50% chiều rộng */
+            text-align: center;
+        }
+
+        .content-container .image img {
+            width: 100%;  /* Ảnh chiếm toàn bộ chiều rộng của container */
+            height: auto;
+            object-fit: cover; /* Đảm bảo ảnh không bị méo */
+        }
+
+        /* Responsive Design: Khi màn hình nhỏ, ảnh sẽ nằm trên content */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column; /* Chuyển sang cột dọc trên màn hình nhỏ */
+                align-items: center;
+            }
+
+            .content-container .image {
+                width: 80%; /* Ảnh chiếm 80% khi ở chế độ dọc */
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333; /* Màu nền tối cho footer */
+            color: #fff;  /* Chữ màu trắng */
+            padding: 20px 0;  /* Thêm padding phía trên và dưới */
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px; /* Tách biệt footer với nội dung */
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer .contact-info {
+            font-size: 13px;
+        }
+
+        footer .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer .contact-info a:hover {
+            color: #5426d1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header" style="display: flex;flex-direction: column;height: 180px;background-color: aqua;">
+            <div id="banner" style="height: 126px; background-color: #fff; display: flex; flex-direction: row;text-align: center;justify-content: center;align-items: center;">
+                <div id="divmenutrai">
+                    <nav id="menutrai">
+                        <ul>
+                            <li><a href="https://www.kthcm.edu.vn/" class="menutrai">TRANG CHU</a></li>
+                            <li><a class="menutrai">EGOV</a></li>
+                            <li><a class="menutrai">SINH VIEN</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div style="flex-grow: 1;">
+                    <img src="images/Ten-truong-do-1000x159.png" width="500" height="80" alt="School Logo"/>
+                </div>
+                <div id="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Tìm kiếm">
+                </div>
+            </div>
+
+            <div id="menubar">
+                <ul>
+                    <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+                    <li><a href="#tin-tuc-su-kien">Tin Tức - Sự Kiện</a></li>
+                    <li><a href="#tuyen-sinh">Tuyển Sinh</a></li>
+                    <li><a href="#cong-khai-giao-duc">Công Khai Giáo Dục</a></li>
+                    <li><a href="#co-cau-to-chuc">Cơ Cấu Tổ Chức</a></li>
+                    <li><a href="#lien-ket">Liên Kết</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content with image on the right -->
+    <div class="content-container">
+        <!-- Content on the left -->
+        <div class="content">
+            <h2>VỀ HCE</h2>
+            <p>Trường Cao đẳng Kinh tế TP. Hồ Chí Minh (Ho Chi Minh College of Economics), một cơ sở giáo dục nghề nghiệp đào tạo các ngành kinh tế, với tầm nhìn trở thành trung tâm đào tạo chất lượng cao. Hai là CÔNG TY TNHH HCE GROUP, một công ty chuyên về lĩnh vực logistics và chuỗi cung ứng hàng hóa toàn cầu, kết nối cung cấp hàng hóa và vận chuyển hàng hóa quốc tế. </p>
+        </div>
+
+        <!-- Image on the right -->
+        <div class="image">
+            <img src="./images/diem-chuan-truong-cao-dang-kinh-te-tphcm-800-13421.jpg" alt="Trường Cao Đẳng Kinh Tế TP.HCM">
+        </div>
+    </div>
+
+    <footer>
+        <p>Thông tin liên hệ:</p>
+        <p class="contact-info">
+            Website: <a href="https://www.kthcm.edu.vn">www.kthcm.edu.vn</a> | 
+            Địa chỉ: Số 33 Vĩnh Viễn, Phường 02, Quận 10, TP.HCM
+        </p>
+    </footer>
+</body>
+</html>
